@@ -53,7 +53,7 @@ const average = (arr) =>
 const API_KEY = "d2178103";
 
 export default function App() {
-  const [query, setQuery] = useState("matrix");
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -93,14 +93,13 @@ export default function App() {
 
         const data = await res.json();
 
-        // if (data.Response === "False") throw new Error(data.Error);
         if (data.Response === "False") throw new Error("Movie not found");
 
         setMovies(data.Search);
         setError("");
       } catch (err) {
         if (err.name !== "AbortError") {
-          console.log("errrrr", err.message);
+          console.log("errr", err.message);
           setError(err.message);
         }
       } finally {
@@ -114,6 +113,8 @@ export default function App() {
       return;
     }
 
+    // close movie details when new search is made
+    handleCloseMovie();
     fetchMovies();
 
     return () => controller.abort();
@@ -302,6 +303,14 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     document.title = `Movie | ${title}`;
     return () => (document.title = "usePopcorn");
   }, [title]);
+
+  useEffect(() => {
+    function callback(e) {
+      if (e.key === "Escape") onCloseMovie();
+    }
+    document.addEventListener("keydown", callback);
+    return () => document.removeEventListener("keydown", callback);
+  }, [onCloseMovie]);
 
   return (
     <div className="details">
