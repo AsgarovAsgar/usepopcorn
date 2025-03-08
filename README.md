@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# 🍿 usePopcorn
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React application for discovering, tracking, and rating your favorite movies.
 
-## Available Scripts
+> This project was created for educational purposes as part of learning React concepts including hooks, custom hooks, API integration, and state management. It demonstrates real-world implementation of React features and best practices.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- 🎬 Search movies using the OMDB API
+- ⭐ Rate movies and keep track of your ratings
+- 📊 View movie details including plot, cast, director, and IMDb ratings
+- 💾 Persistent storage of your watched movies
+- 📱 Responsive design for all devices
+- ⌨️ Keyboard shortcuts for better navigation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Key Components
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Movie Search
 
-### `npm test`
+- Real-time search functionality
+- Displays movie posters, titles, and release years
+- Error handling for failed searches
+- Loading states for better user experience
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Movie Details
 
-### `npm run build`
+- Comprehensive movie information
+- Personal rating system
+- Add movies to your watched list
+- View IMDb ratings and runtime
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Watched Movies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Track movies you've watched
+- Calculate average IMDb rating of your watched movies
+- Calculate average user rating of your movies
+- Calculate average runtime of watched movies
+- Easy deletion of movies from watched list
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technical Details
 
-### `npm run eject`
+### Built With
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React (Hooks based architecture)
+- OMDB API for movie data
+- Local Storage for data persistence
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Custom Hooks
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `useMovies`: Handles movie search and API integration
+- `useLocalStorageState`: Manages persistent storage
+- `useKey`: Handles keyboard interactions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+1. Clone the repository
+2. Install dependencies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Create a `.env` file in the root directory and add your OMDB API key:
 
-### Code Splitting
+```bash
+REACT_APP_OMDB_KEY=your_api_key_here
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Start the development server:
 
-### Analyzing the Bundle Size
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The application will run on port 3030.
 
-### Making a Progressive Web App
+## API Key
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The application uses the OMDB API. You'll need to:
 
-### Advanced Configuration
+1. Get your API key from [OMDB API](http://www.omdbapi.com/)
+2. Add it to the `.env` file as shown in the Getting Started section
+3. Restart the development server if it's running
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> Note: Never commit your `.env` file to version control. It's already added to `.gitignore`.
