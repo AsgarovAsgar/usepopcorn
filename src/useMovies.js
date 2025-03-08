@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const API_KEY = "d2178103";
+const API_KEY = process.env.REACT_APP_OMDB_KEY;
 
 export function useMovies(query) {
   const [movies, setMovies] = useState([]);
